@@ -1,0 +1,19 @@
+<template name="export">
+  <div class="col-4 mt-4">
+    <div class="card border">
+      <div class="card-header">
+        Export crée le : {{this.createdAt}}
+      </div>
+      <div class="card-body">
+        {{#if this.isFinished}}
+          <p class="card-text">Finit le : {{this.finishedAt}}</p>
+          <p class="card-text"><a href="{{this.url}}" target="_blank">{{this.url}}</a></p>
+        {{else}}
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{this.progress}}%;" aria-valuenow="{{this.progress}}" aria-valuemin="0" aria-valuemax="100">{{this.progress}}%</div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
