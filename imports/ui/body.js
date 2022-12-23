@@ -10,7 +10,7 @@ Template.body.onCreated(function bodyOnCreated() {
 });
 Template.body.helpers({
   exports() {
-    return Exports.find({});
+    return Exports.find({}, {sort: {createdAt: -1}});
   }
 });
 Template.body.events({
