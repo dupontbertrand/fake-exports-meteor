@@ -10,7 +10,7 @@
         <div class="col-3 text-center">
           <img src="data-collection.png" class="mb-2" alt="">
           <h5>Plusieurs status</h5>
-          <p class="mb-0">Successful, avec warning, ou tout simplement failed, créez de vrais faux status.</p>
+          <p class="mb-0">Successful, avec warning, ou tout simplement failed, créez de vrais faux exports.</p>
         </div>
         <div class="col-3 text-center">
           <img src="office-building.png" class="mb-2" alt="">
@@ -37,7 +37,6 @@
           Liste de mes exports
           <small class="text-muted">Au {{fullDateTime}}</small>
         </h3>
-        <h3>Exports to PDF</h3>
         <button type="button" name="button" class="btn btn-primary my-5" id="downloadPdf">Export my exports</button>
         <p>
           <button type="button" name="button" class="create btn btn-success my-5">Export succés</button>
@@ -59,7 +58,7 @@
         {{> kpis}}
         <h3 class="mt-5">A propos</h3>
         <p>Je me suis mis en tête d'essayer 2 choses que je n'avais jamais faites sur meteor, à savoir intégrer ChartJS et de la génération de PDF. Très sincérement je pense que j'ai passé 10x plus de temps là-dessus que sur les exports mais ca me tenait à coeur.</p>
-        <p>J'ai mis en place des datas qui se load si la collection est vide afin que le graphique ai de la data.</p>
+        <p>J'ai mis en place des datas qui se load si la collection est vide afin que les graphiques aient de la data.</p>
         <p>Plusieurs types d'exports, il n'y a pas de différence entre success et warning, par contre les exports failed resteront bloqués à 100%</p>
       </div>
     </div>

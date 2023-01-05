@@ -3,20 +3,34 @@ import { Exports } from '../api/exports.js';
 const dayjs = require('dayjs');
 import './kpis.html';
 import Chart from 'chart.js/auto';
-var buildChart = function() {
+var buildCharts = function() {
   var exps = Exports.find().fetch();
-  console.log(exps);
-  var labels = [];
+  var labelsStatus = [];
+  var datasUrls = [];
+  var lempireCount = 0;
+  var lemlistCount = 0;
+  var lemverseCount = 0;
+  var lemstashCount = 0;
   exps.forEach(function(exp) {
+    if (exp.url == "https://www.lempire.com/") {
+      lempireCount++;
+    } else if (exp.url == "https://www.lemlist.com/") {
+      lemlistCount++;
+    } else if (exp.url == "https://www.lemverse.com/") {
+      lemverseCount++;
+    } else if (exp.url == "https://www.lemstash.com/") {
+      lemstashCount++;
+    }
     var a = dayjs(exp.createdAt).format('DD/MM/YYYY');
-    if (!labels.includes(a)) {
-      labels.push(a);
+    if (!labelsStatus.includes(a)) {
+      labelsStatus.push(a);
     }
   });
+  datasUrls.push(lempireCount, lemlistCount, lemverseCount, lemstashCount);
   var successData = [];
   var dangerData = [];
   var warningData = [];
-  labels.forEach(function(date) {
+  labelsStatus.forEach(function(date) {
     var countSuccess = 0;
     var countWarning = 0;
     var countDanger = 0;
@@ -32,10 +46,10 @@ var buildChart = function() {
     dangerData.push(countDanger);
     warningData.push(countWarning);
   });
-  var chart = new Chart(document.getElementById('buttonClicksChart'), {
+  var chartStatus = new Chart(document.getElementById('statusChart'), {
     type: 'line',
     data: {
-      labels: labels,
+      labels: labelsStatus,
       datasets: [{
         label: 'Failed',
         backgroundColor: 'rgb(220, 53, 69)',
@@ -63,16 +77,50 @@ var buildChart = function() {
         },
         title: {
           display: true,
-          text: 'Chart.js Line Chart'
+          text: 'Type d\'exports par jour'
+        }
+      }
+    }
+  })
+  const data = {
+  labels: ['https://www.lempire.com/',
+    'https://www.lemlist.com/',
+    'https://www.lemverse.com/',
+    'https://www.lemstash.com/'
+  ],
+  datasets: [{
+    label: 'Nbre d\'exports',
+    data: datasUrls,
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(110, 201, 54)'
+    ],
+    hoverOffset: 4
+  }]
+};
+  var chartUrl = new Chart(document.getElementById('urlsChart'), {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'URLs'
         }
       }
     }
   })
 };
-Template.kpis.onRendered(function kpisonRendered() {
+Template.kpis.onRendered(function kpisOnRendered() {
   this.subscribe('exports.all', () => {
-  Tracker.afterFlush(() => {
-    buildChart();
-  })
-});
+    Tracker.afterFlush(() => {
+      buildCharts();
+    })
+  });
 });
