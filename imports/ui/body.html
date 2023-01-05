@@ -1,13 +1,67 @@
-<body>
-  <div class="container">
-    <h1>Liste des exports</h1>
-    <button type="button" name="button" class="btn btn-success my-5">Create new export</button>
+<body class="p-5">
+  <section class="py-5" id="features">
+    <div class="container-fluid px-5 my-5">
+      <div class="row">
+        <div class="col-4 mb-5">
+          <h2 class="fw-bolder">Des features jamais vues. <small class="text-muted">Ou presque.</small></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 text-center">
+          <img src="data-collection.png" class="mb-2" alt="">
+          <h5>Plusieurs status</h5>
+          <p class="mb-0">Successful, avec warning, ou tout simplement failed, créez de vrais faux status.</p>
+        </div>
+        <div class="col-3 text-center">
+          <img src="office-building.png" class="mb-2" alt="">
+          <h5>Service client</h5>
+          <p class="mb-0">Irréprochable car inexistant.</p>
+        </div>
+        <div class="col-3 text-center">
+          <img src="kpi.png" class="mb-2" alt="">
+          <h5>Des graphiques</h5>
+          <p class="mb-0">Vous n'aviez rien demandés mais c'est quand même là.</p>
+        </div>
+        <div class="col-3 text-center">
+          <img src="pdf.png" class="mb-2" alt="">
+          <h5>Exportez vos exports.</h5>
+          <p class="mb-0">Inutile mais indispensable, exportez vos exports en PDF. <span class="text-muted">Dans un tableau très moche.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid">
     <div class="row">
-      {{#each exports}}
-          {{> export}}
-        {{else}}
-          <h1 class="text-center">Aucun élément à afficher</h1>
-      {{/each}}
+      <div class="col-8">
+        <h3>
+          Liste de mes exports
+          <small class="text-muted">Au {{fullDateTime}}</small>
+        </h3>
+        <h3>Exports to PDF</h3>
+        <button type="button" name="button" class="btn btn-primary my-5" id="downloadPdf">Export my exports</button>
+        <p>
+          <button type="button" name="button" class="create btn btn-success my-5">Export succés</button>
+          <button type="button" name="button" class="create btn btn-warning my-5 text-white">Export warning</button>
+          <button type="button" name="button" class="create btn btn-danger my-5">Export failed</button>
+        </p>
+        <div class="row">
+          {{#each exports}}
+          <div class="col-4 mb-2">
+            {{> export}}
+          </div>
+          {{else}}
+            <h1 class="text-center">Aucun élément à afficher</h1>
+          {{/each}}
+        </div>
+      </div>
+      <div class="col-4">
+        <h3>KPIs</h3>
+        {{> kpis}}
+        <h3 class="mt-5">A propos</h3>
+        <p>Je me suis mis en tête d'essayer 2 choses que je n'avais jamais faites sur meteor, à savoir intégrer ChartJS et de la génération de PDF. Très sincérement je pense que j'ai passé 10x plus de temps là-dessus que sur les exports mais ca me tenait à coeur.</p>
+        <p>J'ai mis en place des datas qui se load si la collection est vide afin que le graphique ai de la data.</p>
+        <p>Plusieurs types d'exports, il n'y a pas de différence entre success et warning, par contre les exports failed resteront bloqués à 100%</p>
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

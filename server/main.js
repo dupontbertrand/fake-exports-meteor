@@ -10,7 +10,7 @@ const updateDocuments = Meteor.bindEnvironment(() => {
   var a = new Date();
   var now = dayjs(a).format('DD/MM/YYYY HH:mm:ss');
   Exports.update(
-    { isFinished: false, progress: { $gte: 100 } },
+    { isFinished: false, progress: { $gte: 100 }, status: { $ne: 'danger'} },
     {
       $set: {
         isFinished: true,
@@ -28,3 +28,69 @@ const updateDocuments = Meteor.bindEnvironment(() => {
   );
 });
 setInterval(updateDocuments, 1000);
+Meteor.publish('exports.all', function () {
+  return Exports.find();
+})
+Meteor.startup(() => {
+  if (Exports.find().count() === 0) {
+    const exps = [{
+        "progress": 100,
+        "status": "success",
+        "isFinished": true,
+        "createdAt": "03/01/2023 20:51:22",
+        "finishedAt": "03/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "success",
+        "isFinished": true,
+        "createdAt": "03/01/2023 20:51:22",
+        "finishedAt": "03/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "warning",
+        "isFinished": true,
+        "createdAt": "03/01/2023 20:51:22",
+        "finishedAt": "03/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "danger",
+        "isFinished": true,
+        "createdAt": "03/01/2023 20:51:22",
+        "finishedAt": "03/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "warning",
+        "isFinished": true,
+        "createdAt": "04/01/2023 20:51:22",
+        "finishedAt": "04/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "warning",
+        "isFinished": true,
+        "createdAt": "04/01/2023 20:51:22",
+        "finishedAt": "04/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      },
+      {
+        "progress": 100,
+        "status": "success",
+        "isFinished": true,
+        "createdAt": "04/01/2023 20:51:22",
+        "finishedAt": "04/01/2023 20:51:42",
+        "url": "https://www.lemlist.com/"
+      }
+    ];
+
+    exps.forEach(exp => Exports.insert(exp));
+  }
+});
