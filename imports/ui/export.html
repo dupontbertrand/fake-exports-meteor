@@ -3,7 +3,7 @@
       <div class="card-header">
         Export crée le : {{this.createdAt}}
       </div>
-      <div class="card-body border border-{{this.status}}">
+      <div class="card-body border border-2 border-{{this.status}}">
         {{#if this.isFinished}}
           <p class="card-text">Finit le : {{this.finishedAt}}</p>
           <p class="card-text"><a href="{{this.url}}" target="_blank">{{this.url}}</a></p>

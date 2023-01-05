@@ -60,10 +60,8 @@ Meteor.startup(() => {
       {
         "progress": 100,
         "status": "danger",
-        "isFinished": true,
-        "createdAt": "03/01/2023 20:51:22",
-        "finishedAt": "03/01/2023 20:51:42",
-        "url": "https://www.lempire.com/"
+        "isFinished": false,
+        "createdAt": "03/01/2023 20:51:22"
       },
       {
         "progress": 100,
@@ -92,49 +90,45 @@ Meteor.startup(() => {
       {
         "progress": 100,
         "status": "danger",
-        "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
-        "url": "https://www.lempire.com/"
+        "isFinished": false,
+        "createdAt": "05/01/2023 12:51:22"
       },
       {
         "progress": 100,
         "status": "danger",
-        "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
-        "url": "https://www.lemverse.com/"
+        "isFinished": false,
+        "createdAt": "05/01/2023 12:51:22"
       },
       {
         "progress": 100,
         "status": "warning",
         "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
+        "createdAt": "05/01/2023 12:51:22",
+        "finishedAt": "05/01/2023 12:51:42",
         "url": "https://www.lemlist.com/"
       },
       {
         "progress": 100,
         "status": "warning",
         "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
+        "createdAt": "05/01/2023 12:51:22",
+        "finishedAt": "05/01/2023 12:51:42",
         "url": "https://www.lemstash.com/"
       },
       {
         "progress": 100,
         "status": "warning",
         "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
+        "createdAt": "05/01/2023 12:51:22",
+        "finishedAt": "05/01/2023 12:51:42",
         "url": "https://www.lemlist.com/"
       },
       {
         "progress": 100,
         "status": "success",
         "isFinished": true,
-        "createdAt": "05/01/2023 20:51:22",
-        "finishedAt": "05/01/2023 20:51:42",
+        "createdAt": "05/01/2023 12:51:22",
+        "finishedAt": "05/01/2023 12:51:42",
         "url": "https://www.lemstash.com/"
       }
     ];

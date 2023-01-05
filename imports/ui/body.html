@@ -1,28 +1,28 @@
 <body class="p-5">
-  <section class="py-5" id="features">
+  <section class="py-0 py-md-5" id="features">
     <div class="container-fluid px-5 my-5">
       <div class="row">
-        <div class="col-4 mb-5">
+        <div class="col-12 col-md-4 mb-5 text-center text-md-left">
           <h2 class="fw-bolder">Des features jamais vues. <small class="text-muted">Ou presque.</small></h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-3 text-center">
+        <div class="col-md-3 col-12 text-center mb-5 mb-md-0">
           <img src="data-collection.png" class="mb-2" alt="">
-          <h5>Plusieurs status</h5>
+          <h5>Plusieurs statuts</h5>
           <p class="mb-0">Successful, avec warning, ou tout simplement failed, créez de vrais faux exports.</p>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-md-3 col-12 text-center mb-5 mb-md-0">
           <img src="office-building.png" class="mb-2" alt="">
           <h5>Service client</h5>
           <p class="mb-0">Irréprochable car inexistant.</p>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-md-3 col-12 text-center mb-5 mb-md-0">
           <img src="kpi.png" class="mb-2" alt="">
           <h5>Des graphiques</h5>
           <p class="mb-0">Vous n'aviez rien demandés mais c'est quand même là.</p>
         </div>
-        <div class="col-3 text-center">
+        <div class="col-md-3 col-12 text-center mb-5 mb-md-0">
           <img src="pdf.png" class="mb-2" alt="">
           <h5>Exportez vos exports.</h5>
           <p class="mb-0">Inutile mais indispensable, exportez vos exports en PDF. <span class="text-muted">Dans un tableau très moche.</span></p>
@@ -32,20 +32,20 @@
   </section>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-8">
+      <div class="col-12 col-md-8">
         <h3>
           Liste de mes exports
           <small class="text-muted">Au {{fullDateTime}}</small>
         </h3>
-        <button type="button" name="button" class="btn btn-primary my-5" id="downloadPdf">Export my exports</button>
+        <button type="button" name="button" class="btn btn-primary my-2 my-md-5" id="downloadPdf">Export my exports</button>
         <p>
-          <button type="button" name="button" class="create btn btn-success my-5">Export succés</button>
-          <button type="button" name="button" class="create btn btn-warning my-5 text-white">Export warning</button>
-          <button type="button" name="button" class="create btn btn-danger my-5">Export failed</button>
+          <button type="button" name="button" class="create btn btn-success my-2 my-md-5">Export succés</button>
+          <button type="button" name="button" class="create btn btn-warning my-2 my-md-5 text-white">Export warning</button>
+          <button type="button" name="button" class="create btn btn-danger my-2 my-md-5">Export failed</button>
         </p>
         <div class="row">
           {{#each exports}}
-          <div class="col-4 mb-2">
+          <div class="col-12 col-md-4 mb-4">
             {{> export}}
           </div>
           {{else}}
@@ -53,7 +53,7 @@
           {{/each}}
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4">
         <h3>KPIs</h3>
         {{> kpis}}
         <h3 class="mt-5">A propos</h3>

@@ -39,7 +39,7 @@ Template.body.events({
   },
  "click #downloadPdf": function(event) {
    var elements = Exports.find({}, {sort: {createdAt: -1}}).fetch();
-   var html = '<style>table{margin: 0 auto;}td { border:1px solid black;padding:5px;}</style>';
+   var html = '<style>table{margin: 0 auto;margin-top:40px;}td { border:1px solid black;padding:5px;}</style>';
    html += '<table>';
    for (var i = 0; i < elements.length; i++) {
      if (i%2==0) {
@@ -54,11 +54,18 @@ Template.body.events({
      html += elements[i].createdAt;
      html += '</td>';
      html += '<td>';
-     html += elements[i].url;
+     html += elements[i].status;
+     html += '</td>';
+     html += '<td>';
+     if (elements[i].status == "danger") {
+       html += "Export failed";
+     } else {
+       html += elements[i].url;
+     }
      html += '</td>';
      html += '</tr>';
    }
    html += '</table>';
-   html2pdf().from(html).save();
+   html2pdf().from(html).save('myIncredibleExport');
  }
 });
